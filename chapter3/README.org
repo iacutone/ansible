@@ -1,0 +1,11 @@
+_Bash Commands_
+
+#+BEGIN_SRC bash
+df -h
+free -h
+ansible -i inventory db -m setup
+ansible -i inventory multi -b -m yum -a "name=ntp state=present"
+ansible -i inventory multi -b -m service -a "name=ntpd state=present state=started enabled=yes"
+ansible-doc <command>
+#+END_SRC
+
