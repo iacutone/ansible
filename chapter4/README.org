@@ -1,0 +1,6 @@
+_Bash Commands_
+
+#+BEGIN_SRC bash
+ansible-playbook -i inventory playbook.yml
+#+END_SRC
+
