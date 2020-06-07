@@ -1,0 +1,7 @@
+[[https://www.youtube.com/watch?v=SLW4LX7lbvE&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=4][Ansible 101 - Episode 4 - Your first real-world playbook]]
+
+_Bash Commands_
+
+#+BEGIN_SRC bash
+ansible-playbook -i inventory main.yml --syntax-check
+#+END_SRC

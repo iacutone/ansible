@@ -1,3 +1,4 @@
 _Hello_
 
-Follow along with [brew cask install vagrant-manager][Ansible for DevOps] by Jeff Geerling
+Follow along with
+[[https://www.youtube.com/watch?v=goclfp6a2IQ&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN][Ansible for DevOps]] by Jeff Geerling

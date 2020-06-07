@@ -1,0 +1,2 @@
+[solr]
+<ip.address> ansible_user=ubuntu
