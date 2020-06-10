@@ -1,0 +1,78 @@
+---
+- name: install Apache
+  hosts: centos
+  become: true
+
+  # vars:
+  #   proxy_vars:
+  #     http_proxy: http://example-proxy:80/
+  #     https_proxy: http://example-proxy:80/
+
+  # environment:
+  #   http_proxy: http://example-proxy:80/
+  #   https_proxy: http://example-proxy:80/
+
+  # vars_files:
+  #   - vars/main.yml
+ 
+  pre_tasks:
+    - name: Load variable files.
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "vars/apache_defaults.yml"
+        - "vars/apache_{{ ansible_os_family }}.yml"
+
+  handlers:
+    - name: restart apache
+      service:
+        name: "{{ apache_service }}"
+        state: restarted
+
+    # - name : restarted memcached
+    #   service:
+    #     name: memcached
+    #     state: restarted
+
+  tasks:
+    - name: Add an environment variable to the remote user's shell
+      lineinfile:
+        dest: "~/.bash_profile"
+        regexp: '^ENV_VAR='
+        line: 'ENV_VAR=value'
+      become: false
+
+    - name: Get the value of an environment variable
+      shell: 'source ~/.bach_profile && echo $ENV_VAR'
+      register: foo
+
+    - debug: msg="The variable is {{ foo.stdout }}"
+
+    - name: Download a file.
+      get_url: 
+        url: http://ipv4.download.thinkbroadband.com/20MB.zip
+        dest: /tmp
+      # environment: proxy_vars
+
+    - name: Ensure Apache is installed
+      yum:
+        name: "{{ apache_packahe }}"
+        state: present
+      register: foo
+
+    - debug: var=foo
+
+    - name: Copy text config
+      copy:
+        src: files/test.conf
+        dest: "{{ apache_config_dir }}/test.conf"
+      notify: restart apache
+      # notify: restart memcached
+
+    # - name: Make sure handlers are flushed immediately
+    #   meta: flush_handlers
+
+    - name: Ensure apache is running and starts at boot
+      service:
+        name: "{{ apache_service }}"
+        state: started
+        enabled: true

@@ -1,0 +1,9 @@
+[[https://www.youtube.com/watch?v=HU-dkXBCPdU&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=5][Ansible 101 - Episode 5 - Playbook handlers, environment vars, and variables]]
+
+_Bash Commands_
+
+#+BEGIN_SRC bash
+ansible-playbook -i inventory apache.yml
+ansible -i inventoy centos -m setup
+#+END_SRC
+
