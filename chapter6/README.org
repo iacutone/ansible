@@ -1,0 +1,13 @@
+[[https://www.youtube.com/watch?v=JFweg2dUvqM&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=6][Ansible 101 - Episode 6 - Ansible Vault and Roles]]
+
+_Bash Commands_
+
+#+BEGIN_SRC bash
+ansible-vault encrypt vars/api_key.yml
+ansible-vault decrypt vars/api_key.yml
+ansible-vault edit vars/api_key.yml
+ansible-vault rekey vars/api_key.yml
+ansible-playbook main.yml  --ask-vault-pass
+ansible-playbook main.yml  --vault-password-file <path to file>
+#+END_SRC
+

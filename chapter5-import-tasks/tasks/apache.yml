@@ -1,0 +1,17 @@
+---
+  - name: Ensure Apache is installed.
+    yum:
+      name: "{{ apache_packahe }}"
+      state: present
+
+  - name: Copy text config.
+    copy:
+      src: files/test.conf
+      dest: "{{ apache_config_dir }}/test.conf"
+    notify: restart apache
+
+  - name: Ensure apache is running and starts at boot.
+    service:
+      name: "{{ apache_service }}"
+      state: started
+      enabled: true

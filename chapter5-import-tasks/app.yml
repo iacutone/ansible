@@ -1,0 +1,9 @@
+---
+- name: Install app.
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Run a command.
+      command: date
+

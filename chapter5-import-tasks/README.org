@@ -1,0 +1,8 @@
+[[https://www.youtube.com/watch?v=JFweg2dUvqM&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=6][Ansible 101 - Episode 6 - Ansible Vault and Roles]]
+
+[[https://galaxy.ansible.com/][Ansible Roles Page]]
+
+#+BEGIN_SRC bash
+ansible-galaxy role init test
+#+END_SRC
+
