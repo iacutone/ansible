@@ -1,0 +1,17 @@
+[[https://www.youtube.com/watch?v=CYghlf-6Opc&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=8][Episode 8 - Playbook testing with Molecule and GitHub Actions CI]]
+
+_Bash Commands_
+
+#+BEGIN_SRC bash
+molecule init scenario
+molecule converge
+docker ps
+molecule verify
+molecule test
+
+# Helpful list of increasing tests
+yamllint
+ansible-playbook --syntax-check
+anisible-lint
+molecule test
+#+END_SRC
