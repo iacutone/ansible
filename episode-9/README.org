@@ -1,0 +1,13 @@
+[[https://www.youtube.com/watch?v=gV_16dU7XjM&list=PL2_OBreMn7FqZkvMYt6ATmgC0KAGGJNAN&index=9][Episode 9 - First 5 min server security with Ansible]]
+
+_Bash Commands_
+
+#+BEGIN_SRC bash
+ansible-playbook main.yml
+ssh -p 2849 user@ip
+nmap <ip address>
+#+END_SRC
+
+4: r-- -> read
+2: -w- -> write
+1: --x -> execute
